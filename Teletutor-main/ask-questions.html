@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teletutor — Ask a Question</title>
+  <link rel="stylesheet" href="styling.css">
+
+  <!-- New Styling for Centered Form -->
+  <style>
+    /* Wrapper for the whole form so it stays centered */
+    .ask-container {
+      max-width: 500px;
+      margin: 100px auto;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    .ask-container h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 12px;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: #fff;
+    }
+
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #7fa66a; /* your green theme */
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER (unchanged) -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Teletutor</a>
+      <nav class="nav">
+        <a href="student-dashboard.html">Dashboard</a>
+        <a href="questions.html">Questions</a>
+        <a href="tutor-profile.html">Tutors</a>
+        <a href="login.html">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- NEW CENTERED FORM -->
+  <div class="ask-container">
+    <h1>ASK A QUESTION</h1>
+
+    <form id="ask-form">
+
+      <label>Title</label>
+      <input type="text" id="q-title" required>
+
+      <label>Details</label>
+      <textarea id="q-desc" required></textarea>
+
+      <label>Subject</label>
+      <select id="q-subject">
+        <option>Calculus</option>
+        <option>Algebra</option>
+        <option>Physics</option>
+        <option>Chemistry</option>
+      </select>
+
+      <label>Urgency</label>
+      <select id="q-urgency">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
+
+      <button type="submit" class="submit-btn">Submit Question</button>
+    </form>
+  </div>
+
+  <!-- Your question-saving script (unchanged) -->
+  <script>
+    document.getElementById('ask-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const stored = JSON.parse(localStorage.getItem("questions")) || [];
+
+      const newQuestion = {
+        title: document.getElementById('q-title').value,
+        desc: document.getElementById('q-desc').value,
+        subject: document.getElementById('q-subject').value,
+        urgency: document.getElementById('q-urgency').value,
+        date: new Date().toLocaleString()
+      };
+
+      stored.push(newQuestion);
+      localStorage.setItem("questions", JSON.stringify(stored));
+
+      alert("Your question has been submitted!");
+      window.location.href = "questions.html";
+    });
+  </script>
+
+</body>
+</html>
+

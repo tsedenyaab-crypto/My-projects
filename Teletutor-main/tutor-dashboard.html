@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tutor Dashboard</title>
+
+    <style>
+    /* ===== Global Styling ===== */
+    body {
+        font-family: 'Inter', Arial, sans-serif;
+        background: linear-gradient(to bottom right, #ffe5e9, #ffd2d9);
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Page title */
+    h1 {
+        text-align: center;
+        color: #c43b55;
+        margin-bottom: 25px;
+    }
+
+    /* Main container */
+    .dashboard-container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 0 20px 30px;
+    }
+
+    /* Section cards */
+    .card {
+        background: #ffffff;
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 14px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+        color: #c43b55;
+        margin-top: 0;
+        border-left: 4px solid #c43b55;
+        padding-left: 10px;
+        font-weight: 600;
+    }
+
+    p strong {
+        color: #444;
+    }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+
+    table th {
+        background: #c43b55;
+        color: #ffffff;
+        padding: 10px;
+        text-align: left;
+    }
+
+    table td {
+        padding: 10px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    table tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+
+    /* Forms, inputs, textareas */
+    input[type="text"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        margin-top: 5px;
+        margin-bottom: 12px;
+        font-size: 15px;
+        box-sizing: border-box;
+        background: #ffffff;
+    }
+
+    textarea[readonly] {
+        background: #fafafa;
+    }
+
+    label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    /* Radio labels inline */
+    .radio-group label {
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 15px;
+    }
+
+    /* Buttons */
+    button,
+    input[type="submit"] {
+        background: #c43b55;
+        color: #ffffff;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: background 0.2s;
+    }
+
+    button:hover,
+    input[type="submit"]:hover {
+        background: #a82f45;
+    }
+
+    /* Earnings highlight (optional) */
+    .summary-note {
+        margin-top: 10px;
+        background: #fff5f7;
+        border-left: 4px solid #c43b55;
+        padding: 10px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <h1>Tutor Dashboard</h1>
+
+    <button onclick="window.location.href='tutor-profile.html'" 
+style="background:#c43b55; color:white; padding:10px 16px; border:none; border-radius:8px; cursor:pointer; margin-bottom:20px;">
+    View Tutor Profile
+</button>
+   <div class="Dashboard-container"> 
+
+    <!-- Welcome / Goodbye messages (FROM Alex Karen TO students) -->
+    <div class="card">
+        <h2>Messages from Alex Karen</h2>
+        <p><strong>Welcome message:</strong> 
+            Hello student! This is Alex Karen. I’m excited to help you learn and understand mathematics today.
+        </p>
+
+        <p><strong>Goodbye message:</strong> 
+            Thank you for studying with me! – Alex Karen
+        </p>
+    </div>
+
+    <!-- Availability toggle -->
+    <div class="card">
+        <h2>Alex Karen’s Availability</h2>
+        <p>Select current tutoring status:</p>
+
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="availability" value="available">
+                Available
+            </label>
+
+            <label>
+                <input type="radio" name="availability" value="unavailable">
+                Unavailable
+            </label>
+        </div>
+    </div>
+
+    <!-- Questions from students -->
+    <div class="card">
+        <h2>Questions from Students</h2>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Subject</th>
+                <th>Question</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Student A</td>
+                <td>Calculus I</td>
+                <td>Can you explain the chain rule?</td>
+                <td>Not answered</td>
+            </tr>
+            <tr>
+                <td>Student B</td>
+                <td>Multivariable Calculus</td>
+                <td>What is a gradient vector?</td>
+                <td>Answered</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Writing grades -->
+    <div class="card">
+        <h2>Enter / Update Grades</h2>
+        <form>
+            <label>Student Name:
+                <input type="text" name="studentName">
+            </label>
+
+            <label>Course:
+                <input type="text" name="courseName">
+            </label>
+
+            <label>Grade:
+                <input type="text" name="grade">
+            </label>
+
+            <input type="submit" value="Save Grade">
+        </form>
+    </div>
+
+    <!-- Answer Question Interface -->
+    <div class="card">
+        <h2>Answer a Question</h2>
+        <form>
+            <p><strong>Selected question from a student:</strong></p>
+            <textarea rows="3" readonly>Example: Can you help me with partial derivatives?</textarea>
+
+            <label>Your Answer (Alex Karen):</label>
+            <textarea rows="5" name="answer"></textarea>
+
+            <input type="submit" value="Send Answer">
+        </form>
+    </div>
+
+    <!-- Tutor summary earnings -->
+    <div class="card">
+        <h2>Alex Karen’s Earnings Summary</h2>
+        <table>
+            <tr>
+                <th>Total Sessions</th>
+                <th>Rate per Session</th>
+                <th>Total Earnings</th>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>$25</td>
+                <td>$250</td>
+            </tr>
+        </table>
+        <div class="summary-note">
+            Earnings are calculated as <strong>Total Sessions × Rate per Session</strong>.
+        </div>
+    </div>
+
+    <!-- Student session request button -->
+    <div class="card">
+        <h2>Request a Session with Alex Karen</h2>
+        <button type="button">Request Session</button>
+    </div>
+
+</div>
+
+</body>
+</html>

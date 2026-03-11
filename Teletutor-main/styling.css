@@ -1,0 +1,235 @@
+/*
+Styling To Do List:
+  • Make bg scroll?
+  • Align design to illustration:
+    • Center box so that it looks like the illustration.
+    • Align h2 to be aligned with the input boxes.
+*/
+/*
+Colors:
+  • Green - #7fa66a
+  • Blue - #a3cbff
+  • Red - #ff8c75
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+:root
+{
+    --accent-color: #dac4f3;
+    --base-color: white;
+    --text-color: black;
+    --input-color: hsl(from var(--accent-color) h s l / 0.10);
+    --background-image: url(images/purple-bg.png)
+}
+*
+{
+    margin: 0;
+    padding: 0;
+}
+html
+{
+    font-family: 'Gowun Dodum';
+    font-size: 12pt;
+    color: var(--text-color);
+    text-align: center;
+}
+body
+{
+    min-height: 100vh;
+    background-image: var(--background-image);
+    background-size: 150%;
+    background-position: center;
+}
+.wrapper
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: content-box;
+    background-color: var(--base-color);
+    height: 70vh;
+    width: max(40%, 600px);
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--accent-color) 70%, black);
+}
+.landing-wrapper
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: content-box;
+    background-color: var(--base-color);
+    height: 70vh;
+    width: max(40%, 600px);
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--accent-color) 70%, black);
+}
+h1
+{
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+h2
+{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+p
+{
+    font: inherit;
+    margin-top: 10px;
+    margin-bottom: -15px;
+    font-style: italic;
+    color: var(--accent-color);
+}
+form
+{
+    width: min(400px, 100%);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+form > div
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+form input
+{
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 1em;
+    font: inherit;
+    border: 2px solid var(--input-color);
+    background-color: var(--input-color);
+    transition: 200ms ease;
+}
+form input:hover
+{
+    border: 2px solid var(--accent-color);
+}
+form input:focus
+{
+    outline: none;
+    border: 2px solid var(--accent-color);
+}
+form button
+{
+    margin-top: 10px;
+    border: none;
+    padding: 0.85em 4em;
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 200ms ease;
+}
+form button:hover
+{
+    opacity: 75%;
+}
+form button:focus
+{
+    outline: none;
+    opacity: 75%;
+}
+a
+{
+    text-decoration: none;
+    color: var(--accent-color);
+}
+a:hover
+{
+    text-decoration: underline;
+}
+@media(max-width: 1100px)
+{
+    .wrapper
+    {
+        width: min(600px, 100%);
+        border-radius: 0;
+    }
+}
+form div.incorrect input
+{
+    border-color: black;
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* 
+   STUDENT DASHBOARD - ISOLATED FIXES (Affects ONLY Aron)
+*/
+
+body.student-dashboard .nav a {
+  color: black !important;
+  font-weight: 600;
+}
+
+/* Center hero section & make text readable */
+body.student-dashboard .hero,
+body.student-dashboard .small-hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Fix card layout and center everything */
+body.student-dashboard .card-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+/* Make the Ask a Question button pop */
+body.student-dashboard .btn.primary {
+  display: inline-block;
+  background: black !important;
+  color: white !important;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+/* Keep Premium badge visible */
+body.student-dashboard .badge.subscription {
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Fix container width so everything stays centered */
+body.student-dashboard .container,
+body.student-dashboard section {
+  max-width: 900px;
+  margin: auto;
+}
