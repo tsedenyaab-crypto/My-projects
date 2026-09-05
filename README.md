@@ -32,3 +32,12 @@ A collaborative recipe-sharing website built from the ground up with semantic HT
 What this demonstrates: semantic HTML structure, CSS layout techniques (flexbox, responsive design), and attention to consistent, user-friendly visual design.
 
 Built with Leticia Bromley, Lexie Dallison, Aron Hernandez, and Pooja Lamsal.
+Self-Sustaining Renewable Energy House Circuit — Final Project Proposal
+
+EENG 1910, University of North Texas
+
+For my final project, my team and I proposed a small-scale circuit that models how a home could run on renewable energy. The design combines two independent generation sources — a DC motor acting as a wind-turbine generator and a solar cell — each feeding its own storage stage (batteries or capacitors) before passing through a regulated circuit to power a set of LEDs representing rooms in a house. Switches let us manually select which energy source powers the "house" at any given time, and diodes, a voltage regulator, and current-limiting resistors protect the circuit and keep the output steady. I led the project planning: building out the timeline (Gantt chart and network diagram), organizing the team's workflow, and preparing the final presentation materials, while collaborating with my teammates on sourcing parts, soldering, testing, and troubleshooting the build.
+
+What this demonstrates: systems-level circuit design combining multiple energy sources, project planning and scheduling for a multi-week technical build, and budgeting/feasibility analysis alongside the engineering itself.
+
+Proposed and built with Aron Hernandez and Cameron Halsell.
